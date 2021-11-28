@@ -1,0 +1,85 @@
+ <!DOCTYPE html>  
+ <html>  
+  <head> 
+  <style>
+    .center{
+      text-align: center;
+    }
+    body{
+    background: #F3EEEB; 
+    }
+    h1{
+      text-align: center;
+      margin: 50px;
+    }
+    h3{
+      text-align: center;
+    }
+   .calculos{
+    background: #c7502c;
+    color: #f0e8e6;
+    margin: 5px;
+    padding: 10px;
+    font-size: 30px;
+    margin-left: 500px;
+    margin-right: 500px;
+    text-align: center;
+   }
+   .boton{
+    background: #c7502c;
+    color: #f0e8e6;
+    margin: 5px;
+    padding: 10px;
+    margin-left: 530px;
+    margin-right: 530px;
+   }
+  </style> 
+   <meta charset="utf-8">  
+   <title>Triángulo de Pascal</title>  
+  </head>  
+  <body>  
+   <h1>TRIANGULO DE PASCAL</h1>  
+   <div class="boton">
+  <h3>INGRESE UN NUMERO:</h3>
+  <input type="text" id="numero"/ >
+  <input type="button" value="Calcular" onclick="pascal()"/>
+</div>
+   <div class="calculos"><p id="resultado"></p>  </div>
+   <script language="javascript">
+     function pascal(){
+    var n=document.getElementById("numero").value;
+    var A=new Array(n);  
+    for (var i=1;i<=n;i++) {  
+      A[i] = new Array(n);  
+    }  
+    for(i=1;i<=n;i++){  
+      for(j=1;j<=i;j++){  
+    A[i][j]=combina(i-1,j-1);  
+    }  
+    }   
+    var texto=''; 
+      for(i=1;i<=n;i++){  
+    for(j=1;j<=i;j++){   
+    texto+=A[i][j];  
+    texto+= " ";  
+    }  
+    texto+= "<br>";  
+    }  
+    document.getElementById("resultado").innerHTML =  
+    texto;  
+    function combina(p,q){  
+    return  Math.round(fact(p)/(fact(q)*fact(p-q)));   
+    }  
+    function fact(h){  
+    var f=1;  
+    if (h!==0){  
+    for (k=1;k<=h;k++){  
+    f*=k;  
+    }  
+    }  
+    return f;  
+    } 
+     }
+   </script>
+  </body>  
+ </html>
